@@ -100,7 +100,14 @@ public class Ventana extends JFrame implements ActionListener {
         btnInicializar.setBounds(200, 80, 90, 22);
 
         btnDetener = new JButton("Detener");
-        btnDetener.setBounds(200, 80, 90, 22);
+        btnDetener.setBounds(300, 80, 90, 22);
+        btnDetener.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                timer.stop();
+            }
+        });
 
         lblGeneraciones = new JLabel("Generaciones:");
         lblGeneraciones.setBounds(400, 80, 100, 20);
