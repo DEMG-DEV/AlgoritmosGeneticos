@@ -106,12 +106,21 @@ public class Ventana extends JFrame implements ActionListener {
             public void actionPerformed(ActionEvent e) {
                 timer.stop();
                 recargar();
-                timer.start();
+//                timer.start();
             }
 
             private void recargar() {
                 generaciones = 0;
                 mutaciones = 0;
+
+                initFlores();
+
+                lblGeneraciones.setText("Generaciones: " + generaciones);
+                lblMutaciones.setText("Mutaciones: " + mutaciones);
+                calcularAdaptacion();
+                seleccionarPadres();
+                crossover();
+                graf.repaint();
             }
         });
 
