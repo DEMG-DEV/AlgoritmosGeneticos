@@ -73,8 +73,8 @@ public class Ventana extends JFrame implements ActionListener {
         cbmTamano.addItem("Normal");
         cbmTamano.addItem("Grande");
 
-        cbmAltura.setBounds(155, 20, 100, 20);
-        cbmColor.setBounds(355, 20, 100, 20);
+        cbmAltura.setBounds(150, 20, 100, 20);
+        cbmColor.setBounds(350, 20, 100, 20);
         cbmTamano.setBounds(555, 20, 100, 20);
 
         JLabel lblAltura = new JLabel("Altura:");
@@ -103,10 +103,10 @@ public class Ventana extends JFrame implements ActionListener {
         btnDetener.setBounds(300, 80, 90, 22);
 
         lblGeneraciones = new JLabel("Generaciones:");
-        lblGeneraciones.setBounds(400, 80, 100, 20);
+        lblGeneraciones.setBounds(400, 80, 120, 20);
 
         lblMutaciones = new JLabel("Mutaciones:");
-        lblMutaciones.setBounds(500, 80, 100, 20);
+        lblMutaciones.setBounds(520, 80, 100, 20);
 
         panel.add(lblGeneraciones);
         panel.add(lblMutaciones);
@@ -226,8 +226,8 @@ public class Ventana extends JFrame implements ActionListener {
 
         pa.setCromosoma(cromA);
         pb.setCromosoma(cromB);
+        
         Random r = new Random();
-
         int desde = r.nextInt(3);
         int hasta = r.nextInt(5) + desde;
 

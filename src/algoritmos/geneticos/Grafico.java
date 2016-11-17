@@ -74,5 +74,8 @@ public class Grafico extends JPanel {
             y = PISO - crom[0] - crom[5] / 2;
             g2d.fillOval(x, y, crom[5], crom[5]);
         }
+        
+        Toolkit.getDefaultToolkit().sync();
+        g2d.dispose();
     }
 }
