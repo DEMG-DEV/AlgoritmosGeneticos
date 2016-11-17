@@ -93,11 +93,27 @@ public class Ventana extends JFrame implements ActionListener {
             @Override
             public void actionPerformed(ActionEvent e) {
                 timer.start();
+                btnIniciar.setText("Iniciar");
+                btnDetener.setEnabled(true);
             }
         });
 
         btnInicializar = new JButton("Reiniciar");
         btnInicializar.setBounds(200, 80, 90, 22);
+        btnInicializar.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                timer.stop();
+                recargar();
+                timer.start();
+            }
+
+            private void recargar() {
+                generaciones = 0;
+                mutaciones = 0;
+            }
+        });
 
         btnDetener = new JButton("Detener");
         btnDetener.setBounds(300, 80, 90, 22);
@@ -106,14 +122,16 @@ public class Ventana extends JFrame implements ActionListener {
             @Override
             public void actionPerformed(ActionEvent e) {
                 timer.stop();
+                btnIniciar.setText("Continuar");
+                btnDetener.setEnabled(false);
             }
         });
 
         lblGeneraciones = new JLabel("Generaciones:");
-        lblGeneraciones.setBounds(400, 80, 100, 20);
+        lblGeneraciones.setBounds(400, 80, 200, 20);
 
         lblMutaciones = new JLabel("Mutaciones:");
-        lblMutaciones.setBounds(500, 80, 100, 20);
+        lblMutaciones.setBounds(550, 80, 200, 20);
 
         panel.add(lblGeneraciones);
         panel.add(lblMutaciones);
