@@ -26,6 +26,7 @@ public class Ventana extends JFrame implements ActionListener {
     private JComboBox cbmTamano;
     private JComboBox cbmColor;
     private JComboBox cbmAltura;
+    private JComboBox cbmTallo;
     private JButton btnIniciar;
     private JButton btnInicializar;
     private JButton btnDetener;
@@ -73,18 +74,27 @@ public class Ventana extends JFrame implements ActionListener {
         cbmTamano.addItem("Normal");
         cbmTamano.addItem("Grande");
 
-        cbmAltura.setBounds(155, 20, 100, 20);
-        cbmColor.setBounds(355, 20, 100, 20);
-        cbmTamano.setBounds(555, 20, 100, 20);
+        cbmTallo = new JComboBox();
+        cbmTallo.addItem("Pequeño");
+        cbmTallo.addItem("Normal");
+        cbmTallo.addItem("Grande");
+
+        cbmAltura.setBounds(65, 20, 100, 20);
+        cbmColor.setBounds(240, 20, 100, 20);
+        cbmTamano.setBounds(455, 20, 100, 20);
+        cbmTallo.setBounds(635, 20, 100, 20);
 
         JLabel lblAltura = new JLabel("Altura:");
-        lblAltura.setBounds(100, 20, 50, 20);
+        lblAltura.setBounds(20, 20, 50, 20);
 
         JLabel lblColor = new JLabel("Color:");
-        lblColor.setBounds(300, 20, 50, 20);
+        lblColor.setBounds(200, 20, 50, 20);
 
         JLabel lblTamano = new JLabel("Tamaño:");
-        lblTamano.setBounds(500, 20, 50, 20);
+        lblTamano.setBounds(400, 20, 50, 20);
+
+        JLabel lblTallo = new JLabel("Tallo:");
+        lblTallo.setBounds(600, 20, 50, 20);
 
         btnIniciar = new JButton("Iniciar");
         btnIniciar.setBounds(100, 80, 90, 22);
@@ -131,10 +141,12 @@ public class Ventana extends JFrame implements ActionListener {
         panel.add(cbmAltura);
         panel.add(cbmColor);
         panel.add(cbmTamano);
+        panel.add(cbmTallo);
 
         panel.add(lblAltura);
         panel.add(lblColor);
         panel.add(lblTamano);
+        panel.add(lblTallo);
 
         panel.add(btnIniciar);
         panel.add(btnInicializar);
@@ -168,8 +180,8 @@ public class Ventana extends JFrame implements ActionListener {
     }
 
     private void calcularAdaptacion() {
-        double altura, color, tamano;
-        altura = color = tamano = 0;
+        double altura, color, tamano, ancho;
+        altura = color = tamano = ancho = 0;
 
         for (int i = 0; i < flores.length; i++) {
             int[] crom = flores[i].getCromosoma();
@@ -207,7 +219,20 @@ public class Ventana extends JFrame implements ActionListener {
                 tamano = 1 / tamano;
             }
 
-            double adaptacion = (altura + color + tamano) / 3;
+            // tallo
+            if (cbmTallo.getSelectedIndex() == 0) {//grande
+                ancho = crom[3] / 15;
+            } else if (cbmTallo.getSelectedIndex() == 1) {// normal
+                ancho = crom[3] / 20;
+            } else if (cbmTallo.getSelectedIndex() == 2) {//pequeño
+                ancho = crom[3] / 25;
+            }
+
+            if (ancho > 1.0) {
+                ancho = 1 / ancho;
+            }
+
+            double adaptacion = (altura + color + tamano + ancho) / 4;
             flores[i].setAdaptacion(adaptacion);
         }
     }
@@ -263,6 +288,9 @@ public class Ventana extends JFrame implements ActionListener {
                             break;
                         case 1:
                             flores[i].getCromosoma()[1] = r.nextInt(3);
+                            break;
+                        case 3:
+                            flores[i].getCromosoma()[3] = r.nextInt(61) + 20;
                             break;
                         case 4:
                             flores[i].getCromosoma()[4] = r.nextInt(61) + 20;
