@@ -68,16 +68,17 @@ public class Ventana extends JFrame implements ActionListener {
         cbmColor.addItem("Rojo");
         cbmColor.addItem("Azul");
         cbmColor.addItem("Amarillo");
+        cbmColor.addItem("Rosa");
 
         cbmTamano = new JComboBox();
-        cbmTamano.addItem("Pequeño");
-        cbmTamano.addItem("Normal");
         cbmTamano.addItem("Grande");
+        cbmTamano.addItem("Normal");
+        cbmTamano.addItem("Pequeño");
 
         cbmTallo = new JComboBox();
-        cbmTallo.addItem("Pequeño");
-        cbmTallo.addItem("Normal");
         cbmTallo.addItem("Grande");
+        cbmTallo.addItem("Normal");
+        cbmTallo.addItem("Pequeño");
 
         cbmAltura.setBounds(65, 20, 100, 20);
         cbmColor.setBounds(240, 20, 100, 20);
@@ -165,7 +166,7 @@ public class Ventana extends JFrame implements ActionListener {
             // altura
             crom[0] = ran.nextInt(276) + 25;
             // color
-            crom[1] = ran.nextInt(3);
+            crom[1] = ran.nextInt(4);
             // color del tallo
             crom[2] = ran.nextInt(3);
             // ancho del tallo
@@ -221,11 +222,11 @@ public class Ventana extends JFrame implements ActionListener {
 
             // tallo
             if (cbmTallo.getSelectedIndex() == 0) {//grande
-                ancho = crom[3] / 15;
+                ancho = crom[3] / 10;
             } else if (cbmTallo.getSelectedIndex() == 1) {// normal
-                ancho = crom[3] / 20;
+                ancho = crom[3] / 15;
             } else if (cbmTallo.getSelectedIndex() == 2) {//pequeño
-                ancho = crom[3] / 25;
+                ancho = crom[3] / 20;
             }
 
             if (ancho > 1.0) {
@@ -287,10 +288,10 @@ public class Ventana extends JFrame implements ActionListener {
                             flores[i].getCromosoma()[0] = r.nextInt(276) + 25;
                             break;
                         case 1:
-                            flores[i].getCromosoma()[1] = r.nextInt(3);
+                            flores[i].getCromosoma()[1] = r.nextInt(4);
                             break;
                         case 3:
-                            flores[i].getCromosoma()[3] = r.nextInt(61) + 20;
+                            flores[i].getCromosoma()[3] = r.nextInt(11) + 50;
                             break;
                         case 4:
                             flores[i].getCromosoma()[4] = r.nextInt(61) + 20;

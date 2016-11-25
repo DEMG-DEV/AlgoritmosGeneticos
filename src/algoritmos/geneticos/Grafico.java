@@ -16,16 +16,16 @@ import javax.swing.JPanel;
  * @author demg
  */
 public class Grafico extends JPanel {
-    
+
     private Flor[] flores;
     private final int PISO = 500;
-    
+
     public Grafico(Flor[] flores) {
         this.flores = flores;
         setBackground(Color.BLACK);
         setDoubleBuffered(true);
     }
-    
+
     @Override
     public void paint(Graphics g) {
         super.paint(g); //To change body of generated methods, choose Tools | Templates.
@@ -34,7 +34,7 @@ public class Grafico extends JPanel {
         // PISO
         g2d.setColor(Color.GREEN);
         g2d.drawLine(0, PISO, 850, PISO);
-        
+
         for (Flor f : flores) {
             int[] crom = f.getCromosoma();
 
@@ -62,6 +62,9 @@ public class Grafico extends JPanel {
                     break;
                 case 2:
                     g2d.setColor(Color.YELLOW);
+                case 3:
+                    g2d.setColor(Color.PINK);
+                    break;
             }
             // grafica la flor
             int x = f.getX() + crom[3] / 2 - crom[4] / 2;
