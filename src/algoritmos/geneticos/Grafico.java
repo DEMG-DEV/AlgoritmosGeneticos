@@ -41,13 +41,13 @@ public class Grafico extends JPanel {
             // selecciona el color del tallo de la flor
             switch (crom[2]) {
                 case 0:
-                    g2d.setColor(new Color(0, 100, 0));
+                    g2d.setColor(Color.GREEN);
                     break;
                 case 1:
-                    g2d.setColor(new Color(0, 175, 0));
+                    g2d.setColor(new Color(170, 110, 18));
                     break;
                 case 2:
-                    g2d.setColor(new Color(0, 255, 0));
+                    g2d.setColor(Color.LIGHT_GRAY);
                     break;
             }
             g2d.fillRect(f.getX(), PISO - crom[0], crom[3], crom[0]);
