@@ -62,6 +62,7 @@ public class Grafico extends JPanel {
                     break;
                 case 2:
                     g2d.setColor(Color.YELLOW);
+                    break;
                 case 3:
                     g2d.setColor(Color.PINK);
                     break;
