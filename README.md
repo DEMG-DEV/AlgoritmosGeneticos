@@ -7,14 +7,14 @@ El software sirve para hacer seleccion natural de unas floren que se generan de 
 
 Las siguientes son las opciones que se pueden utilizar en el programa.
 
-- **Altura**
+- **Altura**<br/>
 ![alt text](img/altura.PNG "Imagen Altura")
 
-- **Color**
+- **Color**<br/>
 ![alt text](img/color.PNG "Imagen Color")
 
-- **Tamaño**
+- **Tamaño**<br/>
 ![alt text](img/tamaño.PNG "Imagen Tamaño")
 
-- **Tallo**
+- **Tallo**<br/>
 ![alt text](img/tallo.PNG "Imagen Tallo")
