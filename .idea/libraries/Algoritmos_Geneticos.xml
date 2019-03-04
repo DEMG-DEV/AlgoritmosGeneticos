@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Algoritmos_Geneticos">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dist/Algoritmos_Geneticos.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
